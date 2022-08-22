@@ -1,9 +1,5 @@
 /bin
 /vendor
 /coverage
-/yarn.lock
-/node_modules
 
 composer.lock
-package-lock.json
-mix-manifest.json

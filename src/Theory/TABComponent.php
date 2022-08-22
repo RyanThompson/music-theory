@@ -8,5 +8,5 @@ class TABComponent extends Component
 {
     public string $component = 'tab';
     
-    public string $template = 'theory/tab';
+    public string $template = 'theory::tab';
 }

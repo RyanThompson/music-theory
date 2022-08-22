@@ -2,9 +2,10 @@
 
 namespace RyanThompson\MusicTheory;
 
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
-class StreamsServiceProvider extends ServiceProvider
+class MusicTheoryServiceProvider extends ServiceProvider
 {
 
     public array $aliases = [
@@ -19,6 +20,8 @@ class StreamsServiceProvider extends ServiceProvider
 
     public function register(): void
     {
+        View::addNamespace('theory', __DIR__ . '/../resources/views');
+        
         // $this->publishes([
         //     dirname(__DIR__) . '/resources/public'
         //     => public_path('vendor/streams/core'),
