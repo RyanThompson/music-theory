@@ -1,7 +1,7 @@
 {
     "name": "ryanthompson/music-theory",
     "description": "A library of music theory utilities.",
-    "type": "streams-addons",
+    "type": "streams-addon",
     "require": {
         "streams/core": "^2.0"
     },
@@ -30,7 +30,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "RyanThompson\\MusicTheory\\MusicTheoryServiceProvider"
+                "RyanThompson\\MusicTheory\\MusicTheoryProvider"
             ]
         }
     }

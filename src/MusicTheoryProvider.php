@@ -5,15 +5,15 @@ namespace RyanThompson\MusicTheory;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
-class MusicTheoryServiceProvider extends ServiceProvider
+class MusicTheoryProvider extends ServiceProvider
 {
 
     public array $aliases = [
-        'Theory' => \RyanThompson\MusicTheory\Theory::class,
+        'Theory' => \RyanThompson\MusicTheory\Theory\Theory::class,
     ];
 
     public array $singletons = [
-        'theory' => \RyanThompson\MusicTheory\Theory::class,
+        'theory' => \RyanThompson\MusicTheory\Theory\Theory::class,
     ];
 
     public array $bindings = [];

@@ -145,7 +145,7 @@ class Theory
 
     public array $chords = [
         [
-            'names' => ['major_triad'],
+            'names' => ['major', 'major_triad'],
             'name' => 'Major Triad',
             'components' => [0, 4, 7],
         ],
@@ -203,6 +203,10 @@ class Theory
 
     public function __construct(string $root)
     {
+        if ($root == 'random') {
+            $root = $this->notes[array_rand($this->notes)];
+        }
+        
         $this->constructPrototype([
             'root' => $root,
         ]);
@@ -210,6 +214,10 @@ class Theory
 
     public function scale($name = null)
     {
+        if ($name == 'random') {
+            $name = $this->scales[array_rand($this->scales)]['names'][0];
+        }
+
         $name = $name ?: 'ionian';
 
         $notes[] = $note = $this->key;
@@ -226,11 +234,15 @@ class Theory
             $notes[] = $note = $this->note($interval, $note);
         }
 
-        return $notes;
+        return new Scale($notes);
     }
 
     public function chord(string $name, string $root = null)
     {
+        if ($name == 'random') {
+            $name = $this->chords[array_rand($this->chords)]['names'][0];
+        }
+
         $root = $root ?: $this->key;
 
         $chord = Arr::first($this->chords, function($chord) use ($name) {
@@ -247,7 +259,7 @@ class Theory
             $notes[] = $this->note($interval);
         }
 
-        return $notes;
+        return new Chord($notes);
     }
 
     public function note(int $interval, string $note = null)

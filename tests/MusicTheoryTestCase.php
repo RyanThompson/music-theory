@@ -3,12 +3,12 @@
 namespace RyanThompson\MusicTheory\Tests;
 
 use Streams\Testing\TestCase;
-use RyanThompson\MusicTheory\MusicTheoryServiceProvider;
+use RyanThompson\MusicTheory\MusicTheoryProvider;
 
 abstract class MusicTheoryTestCase extends TestCase
 {
     protected function getPackageProviders($app)
     {
-        return [MusicTheoryServiceProvider::class];
+        return [MusicTheoryProvider::class];
     }
 }
