@@ -3,13 +3,14 @@
 namespace RyanThompson\MusicTheory;
 
 use Illuminate\Support\Facades\View;
+use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\ServiceProvider;
 
 class MusicTheoryProvider extends ServiceProvider
 {
 
     public array $aliases = [
-        'Theory' => \RyanThompson\MusicTheory\Theory\Theory::class,
+        'Theory' => \RyanThompson\MusicTheory\Theory\TheoryFacade::class,
     ];
 
     public array $singletons = [
@@ -20,6 +21,8 @@ class MusicTheoryProvider extends ServiceProvider
 
     public function register(): void
     {
+        AliasLoader::getInstance($this->aliases)->register();
+
         View::addNamespace('theory', __DIR__ . '/../resources/views');
         
         // $this->publishes([

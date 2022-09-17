@@ -201,7 +201,7 @@ class Theory
         ],
     ];
 
-    public function __construct(string $root)
+    public function __construct(string $root = 'C')
     {
         if ($root == 'random') {
             $root = $this->notes[array_rand($this->notes)];
@@ -210,6 +210,11 @@ class Theory
         $this->constructPrototype([
             'root' => $root,
         ]);
+    }
+
+    public function scales()
+    {
+        return $this->scales;
     }
 
     public function scale($name = null)
@@ -235,6 +240,11 @@ class Theory
         }
 
         return new Scale($notes);
+    }
+
+    public function chords()
+    {
+        return $this->chords;
     }
 
     public function chord(string $name, string $root = null)
