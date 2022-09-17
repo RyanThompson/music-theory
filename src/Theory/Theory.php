@@ -208,8 +208,13 @@ class Theory
         }
         
         $this->constructPrototype([
-            'root' => $root,
+            'key' => $root,
         ]);
+    }
+
+    public function make(string $root)
+    {
+        return new static($root);
     }
 
     public function scales()
